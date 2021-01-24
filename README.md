@@ -4,17 +4,17 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/buzzkillb/docker-electrumx.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/buzzkillb/docker-electrumx/)
 [![Docker Stars](https://img.shields.io/docker/stars/buzzkillb/docker-electrumx.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/buzzkillb/docker-electrumx/)
 
-[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.11-green.svg?style=for-the-badge)](https://alpinelinux.org/) 
+[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.11-green.svg?style=for-the-badge)](https://alpinelinux.org/)
 
 > Run an Electrum server with one command
 
 An easily configurable Docker image for running an Electrum server.
 
 setup guide  
-https://denariustalk.org/index.php?/topic/282-electrumx-server-setup-guide-docker/
+https://blockforums.org/index.php?/topic/282-electrumx-server-setup-guide-docker/
 
 ## Usage
-**Denarius**
+**Innova**
 ```
 docker run \
   --name=electrumx \
@@ -22,22 +22,22 @@ docker run \
   --ulimit nofile=5120:5120 \
   -t -d \
   -v ~/electrumx:/data \
-  -e DAEMON_URL=http://user:pass@127.0.01:32369 \
-  -e COIN=Denarius \
+  -e DAEMON_URL=http://user:pass@127.0.01:14531 \
+  -e COIN=Innova \
   -p 50002:50002 \
   buzzkillb/docker-electrumx:latest
 ```
 ```
 docker run \
   --net=host \
-  --name=denariusd \
+  --name=innovad \
   -t -d \
-  -p 33369:33369 \
-  -p 32369:32369 \
-  -v ~/.denarius:/data \
-  -P buzzkillb/denariusd:latest
+  -p 14530:14530 \
+  -p 14531:14531 \
+  -v ~/.innova:/data \
+  -P buzzkillb/innovad:latest
 ```
-## Run History Compaction on Denarius (stop electrumx server first)  
+## Run History Compaction on Innova (stop electrumx server first)  
 ```
 docker run \
   --name=electrumx-compact \
@@ -45,8 +45,8 @@ docker run \
   --ulimit nofile=5120:5120 \
   -t -d \
   -v ~/electrumx:/data \
-  -e DAEMON_URL=http://user:pass@127.0.01:32369 \
-  -e COIN=Denarius \
+  -e DAEMON_URL=http://user:pass@127.0.01:14531 \
+  -e COIN=Innova \
   -p 50002:50002 \
   buzzkillb/docker-electrumx:rocksdbcompact
   ```
